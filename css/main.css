@@ -41,7 +41,7 @@
   --font-body:  'Source Serif 4', serif;
 
   /* Layout */
-  --header-h:    60px;
+  --header-h:    74px;
   --max-w:       1160px;
   --gap-section: 128px;
 
@@ -262,13 +262,13 @@ section {
 /* Logo with bracket corners */
 .header-initials {
   font-family: var(--font-hud);
-  font-size: 22px;
+  font-size: 27px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text);
   position: relative;
-  padding: 4px 8px;
+  padding: 5px 10px;
   display: inline-block;
 }
 .header-initials .accent { color: var(--cyan); }
@@ -294,11 +294,11 @@ section {
 }
 .header-nav a {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
-  padding: 7px 12px;
+  padding: 9px 14px;
   border-radius: var(--radius-sm);
   transition: color var(--t-fast) ease, background var(--t-fast) ease;
 }
@@ -312,12 +312,12 @@ section {
   align-items: center;
   gap: 7px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--cyan);
   border: 1px solid var(--line-mid);
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: var(--radius-sm);
   margin-left: 12px;
   transition: border-color var(--t-fast) ease, background var(--t-fast) ease;
