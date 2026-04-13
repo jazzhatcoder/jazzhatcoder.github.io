@@ -294,8 +294,8 @@ section {
 }
 .header-nav a {
   font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -313,8 +313,8 @@ section {
   align-items: center;
   gap: 7px;
   font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--cyan);
@@ -363,7 +363,7 @@ section {
 .mobile-nav a {
   font-family: var(--font-hud);
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-mid);
