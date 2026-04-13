@@ -4,6 +4,17 @@
 
 'use strict';
 
+// Ensure directory URLs end with a trailing slash so relative links resolve
+// correctly on GitHub Pages project sites (e.g., /RepoName/ not /RepoName).
+(function ensureTrailingSlashForDirectoryUrls() {
+  const { origin, pathname, search, hash } = window.location;
+  const isFilePath = /\/[^/]+\.[^/]+$/.test(pathname);
+
+  if (!isFilePath && !pathname.endsWith('/')) {
+    window.location.replace(`${origin}${pathname}/${search}${hash}`);
+  }
+})();
+
 // ============================================================
 // STARFIELD — denser, faint star-map with occasional bright stars
 // ============================================================
