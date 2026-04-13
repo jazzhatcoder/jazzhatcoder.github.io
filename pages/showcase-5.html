@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showcase 04 — Other Piece — Kartik Jassal</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    .sc-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:48px;}
+    .sc-nav a{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);border:1px solid var(--line);padding:6px 14px;border-radius:var(--radius-sm);transition:all var(--t-fast) ease;}
+    .sc-nav a:hover{color:var(--cyan);border-color:var(--line-mid);background:var(--cyan-dim);}
+    .sc-nav a.current{color:var(--amber);border-color:rgba(232,160,32,0.25);background:var(--amber-dim);}
+    .r-block{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:32px;margin-bottom:24px;position:relative;overflow:hidden;transition:border-color var(--t-mid) ease;}
+    .r-block:hover{border-color:var(--line-mid);}
+    .r-block::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--cyan),transparent);opacity:0.45;}
+    .r-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;opacity:0.8;display:flex;align-items:center;gap:8px;}
+    .r-label::before{content:'▸';font-size:8px;}
+    .r-title{font-family:var(--font-hud);font-size:17px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;color:var(--text);margin-bottom:14px;}
+    .r-block p{font-size:16px;font-weight:300;color:var(--text-muted);line-height:1.85;margin-bottom:14px;}
+    .r-block p:last-child{margin-bottom:0;}
+    .doc-frame{background:var(--bg-3);border:1px solid var(--line-mid);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:40px;}
+    .doc-frame-bar{background:var(--bg-2);border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;}
+    .doc-frame-bar span{font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);}
+    .doc-frame-body{padding:56px 48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;min-height:240px;}
+    .doc-icon{width:52px;height:52px;border-radius:var(--radius-lg);background:var(--cyan-dim);border:1px solid var(--line-mid);display:flex;align-items:center;justify-content:center;color:var(--cyan);}
+    .skill-pill{font-family:var(--font-mono);font-size:10px;color:var(--text-mid);letter-spacing:0.08em;padding:7px 12px;background:var(--bg-3);border:1px solid var(--line);border-radius:var(--radius-sm);display:flex;align-items:center;gap:8px;transition:all var(--t-fast) ease;}
+    .skill-pill::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+    .skill-pill:hover{border-color:var(--line-mid);color:var(--cyan);}
+  </style>
+</head>
+<body>
+<canvas id="starfield" aria-hidden="true"></canvas>
+<div id="orbital-overlay" aria-hidden="true"></div>
+<nav id="mobile-nav" class="mobile-nav">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#showcase">Showcase</a><a href="reflection.html">Reflection</a>
+  <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener" style="color:var(--cyan)">LinkedIn ↗</a>
+</nav>
+<header id="site-header" role="banner">
+  <div class="header-inner">
+    <a href="../index.html" class="header-initials">KJ<span class="accent">.</span></a>
+    <nav class="header-nav">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#education">Education</a>
+      <a href="../index.html#achievements">Achievements</a>
+      <a href="../index.html#showcase" style="color:var(--cyan)">Showcase</a>
+      <a href="reflection.html" >Reflection</a>
+      <a href="../index.html#connect">Connect</a>
+    </nav>
+    <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener" class="header-linkedin">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>LinkedIn
+    </a>
+    <button id="hamburger" class="hamburger" aria-label="Open navigation"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="page-hero">
+  <div class="container">
+    <div class="page-breadcrumb">
+      <a href="../index.html">Home</a><span>›</span>
+      <a href="../index.html#showcase">Showcase</a><span>›</span><span>Showcase 04</span>
+    </div>
+    <p class="page-subtitle"><!-- PLACEHOLDER: Update course/activity name --> Other Course / Activity · Showcase 04</p>
+    <!-- PLACEHOLDER: Replace with your actual piece title and source -->
+    <h1 class="page-title">Team Design Proposal:<br>CubeSat Mission Architecture</h1>
+    <!-- PLACEHOLDER: Replace with a description of your actual piece -->
+    <p class="page-intro">A collaborative mission design proposal developed as part of a capstone design project, presenting a CubeSat architecture for atmospheric re-entry monitoring. Selected as a communication showcase for its multi-author coordination, audience-specific framing, and integration of technical and strategic argumentation.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="sc-nav"><a href="showcase-1.html">01 — Feasibility Report</a><a href="showcase-2.html">02 — Technical Memo</a><a href="showcase-3.html">03 — Oral Presentation</a><a href="showcase-4.html" class="current">04 — Other Piece</a></div>
+  <div class="detail-layout">
+    <article class="detail-content">
+      <div class="doc-frame">
+        <div class="doc-frame-bar">
+          <span>Document preview</span>
+          <span style="color:var(--text-dim);">Add your file to assets/ to enable download</span>
+        </div>
+        <div class="doc-frame-body">
+          <div class="doc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
+          <!-- PLACEHOLDER: Update filename -->
+          <p style="font-family:var(--font-hud);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text);margin:0;">CubeSat-Mission-Proposal.pdf</p>
+          <!-- PLACEHOLDER: Update word/page count and semester -->
+          <p style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);letter-spacing:0.1em;margin:0;">~3,800 words · 14 pages · Design Project, Winter 2025</p>
+        </div>
+      </div>
+      <div class="r-block reveal">
+        <div class="r-label">Reflection 01</div>
+        <div class="r-title">Why I Chose This Piece</div>
+        <p>I selected this piece from outside ENG2003 because it represents a communication challenge that formal courses rarely replicate: writing with a team under real deadline pressure, for an audience with decision-making authority, on a proposal that had competitive stakes. The ENG2003 assignments trained individual communication skills; this piece tests whether those skills transfer to a collaborative, high-stakes context.</p>
+        <p>The CubeSat proposal also required integrating technical, financial, and mission-risk arguments in a single document — a synthesis that is much closer to the professional engineering documents I will eventually need to produce. It forced me to think about communication as a system property of a team, not just as an individual skill.</p>
+        <p><!-- PLACEHOLDER: Add context: What course or programme did this come from? Was it a competition submission? An internal design review? Who was the audience — faculty, industry partners, a funding body? These details matter for understanding the communication context. --></p>
+      </div>
+      <div class="r-block reveal">
+        <div class="r-label">Reflection 02</div>
+        <div class="r-title">What It Shows About My Development as a Communicator</div>
+        <p>This proposal shows that the communication skills developed in ENG2003 — audience modelling, recommendation-first structure, visual argument, concision — survive the pressure of collaborative, deadline-constrained work. It would be easy for a group document to default to the communication habits of the most dominant contributor; maintaining deliberate structure under those conditions requires active effort.</p>
+        <p>My specific contribution to the document — the executive summary, the mission rationale section, and the risk register — reflects the ENG2003 principle of putting the recommendation before the evidence. I also introduced a visual mission timeline that the team initially considered unnecessary; the final version of the document was stronger for it, and that experience reinforced my understanding of when visual communication adds genuine value versus decoration.</p>
+        <p><!-- PLACEHOLDER: Describe your specific contribution to the document. What sections did you own? Where did you influence the group's communication decisions? If there were conflicts within the team about tone, structure, or content, how were they resolved? --></p>
+      </div>
+      <div class="r-block reveal">
+        <div class="r-label">Reflection 03</div>
+        <div class="r-title">Did It Push Me Out of My Comfort Zone?</div>
+        <p>Collaborative writing is genuinely more difficult than individual writing, and in ways I had not anticipated. Managing inconsistent tone across sections written by different contributors, resolving disagreements about technical claims, and integrating feedback from multiple reviewers simultaneously — these are coordination problems as much as communication problems.</p>
+        <p>The hardest moment was revising a section written by a teammate that contained a technical inaccuracy. Editing someone else's work to correct it without undermining their contribution or creating conflict required a kind of diplomatic precision that I had not previously needed. That experience taught me something about the social dimension of engineering communication that ENG2003, as an individual-focused course, could not.</p>
+        <p><!-- PLACEHOLDER: Was there a specific interpersonal or coordination challenge during the writing process? How did you navigate it? What would you do differently? --></p>
+      </div>
+      <div class="r-block reveal">
+        <div class="r-label">Reflection 04</div>
+        <div class="r-title">Is This My Best Work? Why or Why Not?</div>
+        <p>In terms of individual writing quality, Showcase 1 is more polished. But as evidence of communication ability in a realistic professional context, this proposal is the most relevant piece in the showcase. It is the closest analogue to the kind of document I will produce as a working engineer — written under pressure, with others, for people with decision-making power over a real project.</p>
+        <p>What I would improve is the abstract. The proposal opens with a dry technical summary that undersells the mission's significance. A stronger abstract would open with the problem statement — the gap in atmospheric monitoring capability — before introducing the proposed solution. That structure would give readers who encounter the document without context a reason to engage before they have the technical background to evaluate the proposal.</p>
+        <p><!-- PLACEHOLDER: How did the proposal perform? Was it accepted, funded, graded, or evaluated in any formal way? What feedback did you receive from the audience or evaluators? --></p>
+      </div>
+    </article>
+    <aside class="detail-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-label">Source</div>
+        <div class="sidebar-card-value"><!-- PLACEHOLDER: Course name or activity --><span style='color:var(--text-muted);font-size:13px;'>Replace with course / activity name</span></div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-label">Document Type</div>
+        <div class="sidebar-card-value"><!-- PLACEHOLDER: e.g. Design Proposal, Lab Report, Grant Application -->Mission Design Proposal</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-label">Semester</div>
+        <div class="sidebar-card-value"><!-- PLACEHOLDER: Update -->Winter 2025</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-label">Team Size</div>
+        <div class="sidebar-card-value"><!-- PLACEHOLDER: Was this solo or collaborative? -->4-person team</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-label">Audience</div>
+        <div class="sidebar-card-value"><!-- PLACEHOLDER: Who evaluated or received this? -->Faculty + industry reviewers</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-label">Skills Demonstrated</div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:8px;"><div class="skill-pill">Collaborative writing</div><div class="skill-pill">Multi-audience framing</div><div class="skill-pill">Visual argumentation</div><div class="skill-pill">Risk communication</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;"><a href="showcase-3.html" class="btn btn-ghost" style="justify-content:center;">← Showcase 03</a><a href="reflection.html" class="btn btn-outline" style="justify-content:center;">Read Reflection →</a></div>
+    </aside>
+  </div>
+</div>
+<footer role="contentinfo">
+  <div class="container footer-inner">
+    <div class="footer-logo">{{KJ}}<span>.</span></div>
+    <nav class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#showcase">Showcase</a>
+      <a href="reflection.html">Reflection</a>
+      <a href="{{https://www.linkedin.com/in/kartikjassal/}}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:{{kartikj@my.yorku.ca}}">Email</a>
+    </nav>
+    <div class="footer-social">
+      <a href="{{https://www.linkedin.com/in/kartikjassal/}}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+      <a href="{{https://github.com/jazzhatcoder}}" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+      <a href="mailto:{{kartikj@my.yorku.ca}}" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+    </div>
+    <p class="footer-copy">© 2026 {{Kartik Jassal}} · Engineered for the frontier.</p>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
