@@ -4,152 +4,289 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reflection — {{FULL_NAME}}</title>
+  <meta name="description" content="Reflection on ENG2003 and growth as a communicator — {{FULL_NAME}}." />
   <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    .reflection-page { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; padding-bottom: 120px; }
+    .ref-part-header {
+      margin: 72px 0 40px;
+      padding-top: 72px;
+      border-top: 1px solid var(--line);
+    }
+    .ref-part-header:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .ref-part-number {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+      opacity: 0.8;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .ref-part-number::before { content: '▸'; font-size: 8px; }
+    .ref-part-title {
+      font-family: var(--font-hud);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.0;
+    }
+    .ref-body p {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.88;
+      color: var(--text-muted);
+      margin-bottom: 26px;
+    }
+    .ref-body p:last-child { margin-bottom: 0; }
+    .ref-body strong { color: var(--text); font-weight: 500; }
+    .ref-pull {
+      border-left: 2px solid var(--cyan);
+      padding: 22px 30px;
+      margin: 48px 0;
+      background: var(--bg-card);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      position: relative;
+    }
+    .ref-pull::before {
+      content: '// KEY INSIGHT';
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--cyan);
+      opacity: 0.6;
+      margin-bottom: 12px;
+    }
+    .ref-pull p {
+      font-style: italic;
+      font-size: 19px !important;
+      color: var(--text) !important;
+      margin: 0 !important;
+      line-height: 1.7 !important;
+    }
+    .ref-sub-heading {
+      font-family: var(--font-hud);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin: 48px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ref-sub-heading::before { content: '▸'; color: var(--cyan); font-size: 12px; opacity: 0.7; }
+    .showcase-links-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 48px 0;
+    }
+    .sc-link-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      transition: all var(--t-mid) ease;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sc-link-card:hover { border-color: var(--line-bright); background: var(--bg-card-hover); }
+    .sc-link-card .sc-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; color: var(--amber); text-transform: uppercase; opacity: 0.8; }
+    .sc-link-card .sc-name { font-family: var(--font-hud); font-size: 15px; font-weight: 700; text-transform: uppercase; color: var(--text); }
+    .sc-link-card .sc-type { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.08em; }
+    .sc-link-card:hover .sc-name { color: var(--cyan); }
+    @media (max-width: 600px) {
+      .showcase-links-row { grid-template-columns: 1fr; }
+      .ref-part-title { font-size: 22px; }
+      .ref-body p { font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
 
 <canvas id="starfield" aria-hidden="true"></canvas>
+<div id="orbital-overlay" aria-hidden="true"></div>
 
-<!-- Mobile Nav -->
-<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+<nav id="mobile-nav" class="mobile-nav">
   <a href="../index.html">Home</a>
   <a href="../index.html#showcase">Showcase</a>
-  <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener" style="color:var(--accent)">LinkedIn ↗</a>
+  <a href="reflection.html" style="color:var(--cyan)">Reflection</a>
+  <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener" style="color:var(--cyan)">LinkedIn ↗</a>
 </nav>
 
-<!-- Header -->
-<header id="site-header">
+<header id="site-header" role="banner">
   <div class="header-inner">
-    <a href="../index.html" class="header-initials">{{INITIALS}}<span>.</span></a>
+    <a href="../index.html" class="header-initials">{{INITIALS}}<span class="accent">.</span></a>
     <nav class="header-nav">
       <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#education">Education</a>
       <a href="../index.html#showcase">Showcase</a>
+      <a href="reflection.html" style="color:var(--cyan)">Reflection</a>
       <a href="../index.html#connect">Connect</a>
     </nav>
-    <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener" class="header-linkedin">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+    <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener" class="header-linkedin">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
       LinkedIn
     </a>
-    <button id="hamburger" class="hamburger" aria-label="Open navigation">
-      <span></span><span></span><span></span>
-    </button>
+    <button id="hamburger" class="hamburger" aria-label="Open navigation"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- Page Hero -->
 <div class="page-hero">
   <div class="container">
     <div class="page-breadcrumb">
-      <a href="../index.html">Home</a>
-      <span>›</span>
-      <span>Reflection</span>
+      <a href="../index.html">Home</a><span>›</span><span>Reflection</span>
     </div>
-    <p class="page-subtitle">ENG2003 · Communication Growth</p>
+    <p class="page-subtitle">ENG2003 · Communication Growth · Two-Part Reflection</p>
     <h1 class="page-title">Reflection</h1>
-    <p class="page-intro">A reflection on my experiences in ENG2003 and my development as a communicator — in engineering and beyond.</p>
+    <p class="page-intro">A two-part reflection on the experience of ENG2003 and my development as a communicator — examining how the course changed the way I think about technical language, audience, and the relationship between engineering rigour and communicative effectiveness.</p>
   </div>
 </div>
 
-<!-- Reflection Body -->
 <div class="container">
-  <div class="reflection-layout">
+  <div class="reflection-page">
 
-    <div class="reflection-body">
+    <!-- Linked showcase pieces -->
+    <div class="showcase-links-row">
+      <a href="showcase-1.html" class="sc-link-card">
+        <span class="sc-num">Showcase 01 · ENG2003</span>
+        <span class="sc-name">Feasibility Report</span>
+        <span class="sc-type">Technical Feasibility Report</span>
+      </a>
+      <a href="showcase-2.html" class="sc-link-card">
+        <span class="sc-num">Showcase 02 · ENG2003</span>
+        <span class="sc-name">Technical Memo</span>
+        <span class="sc-type">Internal Memorandum</span>
+      </a>
+      <a href="showcase-3.html" class="sc-link-card">
+        <span class="sc-num">Showcase 03 · ENG2003</span>
+        <span class="sc-name">Oral Presentation</span>
+        <span class="sc-type">10-minute Presentation + Q&amp;A</span>
+      </a>
+      <a href="showcase-4.html" class="sc-link-card">
+        <span class="sc-num">Showcase 04 · Other</span>
+        <span class="sc-name">Design Proposal</span>
+        <!-- PLACEHOLDER: Update type to match your actual piece -->
+        <span class="sc-type">Mission Design Proposal</span>
+      </a>
+    </div>
 
-      <!-- ---- PART 1 ---- -->
-      <h2 class="reflection-section-title">Part 1: Reflections on ENG2003</h2>
+    <!-- ============================================================
+         PART 1: ENG2003
+         ============================================================ -->
+    <div class="ref-part-header">
+      <div class="ref-part-number">Part 01</div>
+      <h2 class="ref-part-title">Reflections on ENG2003</h2>
+    </div>
 
-      <p>
-        <!--
-          PLACEHOLDER: Write 3–5 paragraphs reflecting on your experience in ENG2003.
-          Consider: What was the course about? What assignments challenged you most?
-          What did you learn about communicating as an engineer?
-          What surprised you about the course?
-        -->
-      </p>
+    <div class="ref-body">
 
-      <p>
-        <!-- PLACEHOLDER: Continue your reflection on ENG2003. Discuss a specific
-        assignment or moment that shaped your understanding of engineering communication. -->
-      </p>
+      <!-- PLACEHOLDER: Replace all paragraphs below with your actual reflection. The placeholder text below is a structural guide — the topics, sequence, and framing are suggestions. Write in your own voice about your actual experience. -->
 
-      <div class="reflection-pull-quote">
-        <p>
-          <!-- PLACEHOLDER: A meaningful quote from your own reflection —
-          a sentence that captures a turning point or key insight from the course. -->
-          "{{REFLECTION_QUOTE_1}}"
-        </p>
+      <p>I entered ENG2003 with the assumption that communication was a secondary competency for an engineer — something you developed alongside your technical skills, not something that required its own dedicated study. That assumption did not survive the first three weeks of the course. What I discovered was that I had developed a sophisticated set of communication habits over years of academic writing, and that most of those habits actively worked against clear technical communication.</p>
+
+      <p><!-- PLACEHOLDER: Describe your first significant assignment in ENG2003. What was it? What did you think before you started it? What did the process reveal about your existing habits? --></p>
+
+      <div class="ref-sub-heading">What the Course Required</div>
+
+      <p>ENG2003 operates from a simple premise that turns out to be surprisingly difficult to internalise: the purpose of technical writing is not to demonstrate your knowledge of a subject, but to produce a specific effect in a specific reader. That reorientation — from self-expression to audience service — sounds obvious in the abstract, but it cuts against the incentive structure of most academic writing, where demonstrating mastery is the explicit goal.</p>
+
+      <p><!-- PLACEHOLDER: Describe a specific assignment or workshop moment where this reorientation became concrete for you. What happened? What did you produce? What feedback did you receive, and how did it land? --></p>
+
+      <div class="ref-pull">
+        <p><!-- PLACEHOLDER: Replace with a sentence from your actual reflection — a moment of genuine insight about communication, not a paraphrase of the course objectives. Something you actually believe. -->"The clearest technical writing is not simplified — it is precisely calibrated to the reader. Simplicity and rigour are not opposites; calibration is the skill that reconciles them."</p>
       </div>
 
-      <p>
-        <!-- PLACEHOLDER: Reflect on the role of audience awareness, clarity,
-        and structure in your ENG2003 assignments. -->
-      </p>
+      <div class="ref-sub-heading">The Three Assignments</div>
 
-      <p>
-        <!-- PLACEHOLDER: Any feedback from instructors or peers that changed
-        how you approach writing or presenting? -->
-      </p>
+      <p>The feasibility report, the technical memo, and the oral presentation each isolated a different communication problem. The report asked me to manage complexity across a long document and navigate a significant expertise gap with my audience. The memo asked me to produce maximum impact with minimum length — a compression problem as much as a writing problem. The presentation asked me to deliver an argument without the safety net of the written word, in real time, with immediate visible feedback from the audience.</p>
 
+      <p><!-- PLACEHOLDER: Write about how your approach changed between the first and third assignment. Did the skills transfer? Were there things that got harder as the semester progressed, not easier? What surprised you about the progression? --></p>
 
-      <!-- ---- PART 2 ---- -->
-      <h2 class="reflection-section-title">Part 2: Growth as a Communicator</h2>
+      <p><!-- PLACEHOLDER: Describe specific feedback — from an instructor or peer — that changed how you worked on a subsequent assignment. Not feedback you agreed with immediately, but feedback you had to sit with before understanding. --></p>
 
-      <p>
-        <!--
-          PLACEHOLDER: Reflect broadly on your growth as a communicator —
-          not just in ENG2003 but across your engineering studies, extracurriculars,
-          and personal experiences. Where did you start? Where are you now?
-        -->
-      </p>
+      <div class="ref-sub-heading">The Peer Review Process</div>
 
-      <p>
-        <!-- PLACEHOLDER: Discuss one or two specific moments (from any context)
-        where you grew significantly as a communicator. What happened?
-        What did you learn? -->
-      </p>
+      <p><!-- PLACEHOLDER: ENG2003 likely involved peer review or workshop feedback. Describe your experience of both giving and receiving that feedback. Was it easier to critique others' writing than your own? What did reviewing other students' work teach you about your own habits? --></p>
 
-      <div class="reflection-pull-quote">
-        <p>
-          <!-- PLACEHOLDER: Another meaningful insight from your reflection on communication growth. -->
-          "{{REFLECTION_QUOTE_2}}"
-        </p>
+    </div>
+
+    <!-- ============================================================
+         PART 2: GROWTH AS A COMMUNICATOR
+         ============================================================ -->
+    <div class="ref-part-header">
+      <div class="ref-part-number">Part 02</div>
+      <h2 class="ref-part-title">Growth as a Communicator</h2>
+    </div>
+
+    <div class="ref-body">
+
+      <!-- PLACEHOLDER: Part 2 should be broader than ENG2003 — it should trace your development as a communicator across your engineering education and personal experience. Where did you start? Where are you now? -->
+
+      <p>Growth as a communicator is not a linear process. Looking back across my engineering education, I can identify moments of significant forward movement — and moments where I reverted to old habits under pressure. ENG2003 did not transform my communication in a single semester; what it did was give me an explicit framework for diagnosing what is wrong when a piece of communication is not working, and a set of tools for fixing it.</p>
+
+      <p><!-- PLACEHOLDER: Describe where you were as a communicator before this course. What were your habits? What did your writing look like? Were there moments before ENG2003 where communication became a problem — a report that confused its readers, a presentation that fell flat, a proposal that didn't land? --></p>
+
+      <div class="ref-sub-heading">The Gap Between Technical Competence and Communication Clarity</div>
+
+      <p>The hardest thing to accept about communication growth is that it requires a different kind of intelligence than technical problem-solving. Debugging a control algorithm requires that you understand the system more deeply. Revising a technical document often requires that you step back from your understanding and model someone else's — someone who lacks the context you have built up over months or years of work on a problem.</p>
+
+      <p><!-- PLACEHOLDER: Describe a specific instance — in any context, not necessarily ENG2003 — where you were technically right but communicatively ineffective. What happened? What were the consequences? What did you learn? --></p>
+
+      <div class="ref-pull">
+        <p><!-- PLACEHOLDER: Replace with your own sentence — a belief about communication that you hold now that you did not hold before ENG2003 or before this stage of your engineering education. -->"Engineering communication is not a soft skill grafted onto technical work. It is a design problem: the audience is the system, and clarity is the performance requirement."</p>
       </div>
 
-      <p>
-        <!-- PLACEHOLDER: How has improving as a communicator made you a better engineer?
-        Or how has thinking like an engineer shaped how you communicate?
-        Connect both sides. -->
-      </p>
+      <div class="ref-sub-heading">Communication in Engineering Teams</div>
 
-      <p>
-        <!-- PLACEHOLDER: Where do you want to go from here?
-        What communication skills are you still working to develop?
-        What does growth look like for you in your remaining years as a student and beyond? -->
-      </p>
+      <p><!-- PLACEHOLDER: Describe your experience communicating in a team context — a design project, a hackathon, a research group, a student organisation. How did the communication skills from ENG2003 help? Where were the gaps? What did collaborative communication teach you that solo work could not? --></p>
 
-      <!-- ---- Nav between showcase items ---- -->
-      <div style="margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border); display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="../index.html#showcase" class="btn btn-outline">← View Showcase</a>
-        <a href="../index.html#connect" class="btn btn-ghost">Contact Me →</a>
-      </div>
+      <div class="ref-sub-heading">Where I Am Now and Where I Want to Go</div>
 
+      <p>I am a significantly more deliberate communicator than I was when I started this programme. I understand my own default tendencies — toward density, toward data-first structure, toward technical precision at the cost of accessibility — and I have developed habits for counteracting them. That awareness does not eliminate the tendencies; it means I catch them earlier and have techniques for addressing them.</p>
+
+      <p><!-- PLACEHOLDER: Be honest about what you still find difficult. What communication challenges do you expect to face as a professional engineer? What skills are you still working to develop? What does continued growth look like for you? --></p>
+
+      <p><!-- PLACEHOLDER: End with something forward-looking and specific. What kind of communicator do you want to be in five years? What will you do differently in your next course, your next project, your first professional role? --></p>
+
+    </div>
+
+    <!-- Bottom navigation -->
+    <div style="margin-top:72px;padding-top:48px;border-top:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="../index.html#showcase" class="btn btn-outline">← View Showcase</a>
+      <a href="showcase-1.html" class="btn btn-ghost">Start with Showcase 01 →</a>
+      <a href="../index.html#connect" class="btn btn-ghost">Contact →</a>
     </div>
 
   </div>
 </div>
 
-<!-- Footer -->
-<footer>
+<footer role="contentinfo">
   <div class="container footer-inner">
     <div class="footer-logo">{{INITIALS}}<span>.</span></div>
-    <div class="footer-links">
+    <nav class="footer-links">
       <a href="../index.html">Home</a>
       <a href="../index.html#showcase">Showcase</a>
-      <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:kartikj@my.yorku.ca">Email</a>
+      <a href="reflection.html">Reflection</a>
+      <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:{{EMAIL}}">Email</a>
+    </nav>
+    <div class="footer-social">
+      <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+      <a href="{{GITHUB_URL}}" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+      <a href="mailto:{{EMAIL}}" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
     </div>
-    <p class="footer-copy">© 2025 {{FULL_NAME}} · Built for the frontier.</p>
+    <p class="footer-copy">© 2025 {{FULL_NAME}} · Engineered for the frontier.</p>
   </div>
 </footer>
 

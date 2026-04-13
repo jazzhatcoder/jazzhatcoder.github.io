@@ -3,172 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Showcase 2 — {{FULL_NAME}}</title>
+  <title>Showcase 02 — Technical Memo — {{FULL_NAME}}</title>
   <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    .sc-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:48px;}
+    .sc-nav a{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);border:1px solid var(--line);padding:6px 14px;border-radius:var(--radius-sm);transition:all var(--t-fast) ease;}
+    .sc-nav a:hover{color:var(--cyan);border-color:var(--line-mid);background:var(--cyan-dim);}
+    .sc-nav a.current{color:var(--amber);border-color:rgba(232,160,32,0.25);background:var(--amber-dim);}
+    .r-block{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:32px;margin-bottom:24px;position:relative;overflow:hidden;transition:border-color var(--t-mid) ease;}
+    .r-block:hover{border-color:var(--line-mid);}
+    .r-block::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--cyan),transparent);opacity:0.45;}
+    .r-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;opacity:0.8;display:flex;align-items:center;gap:8px;}
+    .r-label::before{content:'▸';font-size:8px;}
+    .r-title{font-family:var(--font-hud);font-size:17px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;color:var(--text);margin-bottom:14px;}
+    .r-block p{font-size:16px;font-weight:300;color:var(--text-muted);line-height:1.85;margin-bottom:14px;}
+    .r-block p:last-child{margin-bottom:0;}
+    .doc-frame{background:var(--bg-3);border:1px solid var(--line-mid);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:40px;}
+    .doc-frame-bar{background:var(--bg-2);border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;}
+    .doc-frame-bar span{font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);}
+    .doc-frame-body{padding:56px 48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;min-height:240px;}
+    .doc-icon{width:52px;height:52px;border-radius:var(--radius-lg);background:var(--cyan-dim);border:1px solid var(--line-mid);display:flex;align-items:center;justify-content:center;color:var(--cyan);}
+    .skill-pill{font-family:var(--font-mono);font-size:10px;color:var(--text-mid);letter-spacing:0.08em;padding:7px 12px;background:var(--bg-3);border:1px solid var(--line);border-radius:var(--radius-sm);display:flex;align-items:center;gap:8px;transition:all var(--t-fast) ease;}
+    .skill-pill::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+    .skill-pill:hover{border-color:var(--line-mid);color:var(--cyan);}
+  </style>
 </head>
 <body>
-
 <canvas id="starfield" aria-hidden="true"></canvas>
-
-<!-- Mobile Nav -->
-<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+<div id="orbital-overlay" aria-hidden="true"></div>
+<nav id="mobile-nav" class="mobile-nav">
   <a href="../index.html">Home</a>
-  <a href="../index.html#showcase">All Showcases</a>
-  <a href="reflection.html">Reflection</a>
-  <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener" style="color:var(--accent)">LinkedIn ↗</a>
+  <a href="../index.html#showcase">Showcase</a><a href="reflection.html">Reflection</a>
+  <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener" style="color:var(--cyan)">LinkedIn ↗</a>
 </nav>
-
-<!-- Header -->
-<header id="site-header">
+<header id="site-header" role="banner">
   <div class="header-inner">
-    <a href="../index.html" class="header-initials">{{INITIALS}}<span>.</span></a>
+    <a href="../index.html" class="header-initials">{{INITIALS}}<span class="accent">.</span></a>
     <nav class="header-nav">
       <a href="../index.html#about">About</a>
       <a href="../index.html#experience">Experience</a>
-      <a href="../index.html#showcase">Showcase</a>
-      <a href="reflection.html">Reflection</a>
+      <a href="../index.html#education">Education</a>
+      <a href="../index.html#achievements">Achievements</a>
+      <a href="../index.html#showcase" style="color:var(--cyan)">Showcase</a>
+      <a href="reflection.html" >Reflection</a>
       <a href="../index.html#connect">Connect</a>
     </nav>
-    <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener" class="header-linkedin">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-      LinkedIn
+    <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener" class="header-linkedin">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>LinkedIn
     </a>
-    <button id="hamburger" class="hamburger" aria-label="Open navigation">
-      <span></span><span></span><span></span>
-    </button>
+    <button id="hamburger" class="hamburger" aria-label="Open navigation"><span></span><span></span><span></span></button>
   </div>
 </header>
-
-<!-- Page Hero -->
 <div class="page-hero">
   <div class="container">
     <div class="page-breadcrumb">
-      <a href="../index.html">Home</a>
-      <span>›</span>
-      <a href="../index.html#showcase">Showcase</a>
-      <span>›</span>
-      <span>Showcase 2</span>
+      <a href="../index.html">Home</a><span>›</span>
+      <a href="../index.html#showcase">Showcase</a><span>›</span><span>Showcase 02</span>
     </div>
-    <p class="page-subtitle">ENG2003 · Showcase 2</p>
-    <!-- PLACEHOLDER: Replace with real title -->
-    <h1 class="page-title">{{SHOWCASE_2}}</h1>
-    <!-- PLACEHOLDER: 1–2 sentence overview of this piece -->
-    <p class="page-intro"><!-- PLACEHOLDER: Short intro sentence about this showcase piece. --></p>
+    <p class="page-subtitle">ENG2003 · Engineering Communication · Showcase 02</p>
+    <!-- PLACEHOLDER: Replace with your actual piece title -->
+    <h1 class="page-title">Technical Memo:<br>Autonomous Inspection Protocol for LEO Assets</h1>
+    <!-- PLACEHOLDER: Replace with your actual piece description -->
+    <p class="page-intro">An internal technical memorandum recommending adoption of a standardised autonomous inspection protocol for low Earth orbit satellite platforms, addressed to a senior engineering team. Produced as part of ENG2003.</p>
   </div>
 </div>
-
-<!-- Detail Body -->
 <div class="container">
+  <div class="sc-nav"><a href="showcase-1.html">01 — Feasibility Report</a><a href="showcase-2.html" class="current">02 — Technical Memo</a><a href="showcase-3.html">03 — Oral Presentation</a><a href="showcase-4.html">04 — Other Piece</a></div>
   <div class="detail-layout">
-
-    <!-- Main Content -->
     <article class="detail-content">
-
-      <!-- Visual / Sample -->
-      <div class="detail-placeholder-box">
-        <!--
-          PLACEHOLDER: Insert an image, embedded PDF, or visual sample here.
-          Options:
-          (a) Image: <img src="../assets/images/showcase-2-sample.jpg" alt="Sample image" />
-          (b) PDF embed: <iframe src="../assets/showcase-2.pdf" width="100%" height="500px"></iframe>
-          (c) Leave placeholder text until ready
-        -->
-        📄 Visual sample / document embed goes here<br>
-        <span style="font-size:11px;opacity:0.5;margin-top:8px;display:block">Replace this box with an &lt;img&gt;, &lt;iframe&gt;, or link to file</span>
-      </div>
-
-      <h2>Why I Chose This Piece</h2>
-      <p>
-        <!-- PLACEHOLDER: Explain why you selected this piece for your showcase.
-        What made it stand out among your work this semester? -->
-      </p>
-
-      <h2>What It Shows About My Development as a Communicator</h2>
-      <p>
-        <!-- PLACEHOLDER: Describe what skills, growth, or awareness this piece demonstrates.
-        How does it reflect your evolution as an engineering communicator? -->
-      </p>
-
-      <h2>Did It Push Me Out of My Comfort Zone?</h2>
-      <p>
-        <!-- PLACEHOLDER: Reflect on any challenges, new skills, or anxieties you navigated
-        while producing this piece. -->
-      </p>
-
-      <h2>Is This My Best Work? Why or Why Not?</h2>
-      <p>
-        <!-- PLACEHOLDER: Honest self-assessment. What are you proud of?
-        What would you do differently? -->
-      </p>
-
-      <!-- Optional file download -->
-      <!--
-        PLACEHOLDER: Uncomment and update this block if you want a downloadable file:
-        <div style="margin-top:40px;">
-          <a href="../assets/showcase-2.pdf" download class="btn btn-outline">
-            ↓ Download Full Document
-          </a>
+      <div class="doc-frame">
+        <div class="doc-frame-bar">
+          <span>Document preview</span>
+          <span style="color:var(--text-dim);">Add your file to assets/ to enable download</span>
         </div>
-      -->
-
+        <div class="doc-frame-body">
+          <div class="doc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
+          <!-- PLACEHOLDER: Update filename -->
+          <p style="font-family:var(--font-hud);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text);margin:0;">Inspection-Protocol-Memo.pdf</p>
+          <!-- PLACEHOLDER: Update word/page count and semester -->
+          <p style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);letter-spacing:0.1em;margin:0;">~1,200 words · 4 pages · ENG2003, Fall 2024</p>
+        </div>
+      </div>
+      <div class="r-block reveal">
+        <div class="r-label">Reflection 01</div>
+        <div class="r-title">Why I Chose This Piece</div>
+        <p>I selected this memo because it represents a fundamentally different communication challenge from the feasibility report: where that document had to bridge an expertise gap, this memo had to communicate urgency and clarity to an audience of technical peers. The constraint here was not simplification but precision — every claim had to be supportable and every recommendation had to be operationally actionable.</p>
+        <p>The memo format also forced economy. With a strict page limit, I could not rely on volume to demonstrate thoroughness. Each sentence had to carry weight. This is the piece where I first practised writing tight — cutting words without cutting meaning.</p>
+        <p><!-- PLACEHOLDER: Add specific context: what prompted the memo? Was it a response to a case study, a hypothetical brief, or a real problem you identified? What made the topic personally relevant to your engineering interests? --></p>
+      </div>
+      <div class="r-block reveal">
+        <div class="r-label">Reflection 02</div>
+        <div class="r-title">What It Shows About My Development as a Communicator</div>
+        <p>This memo demonstrates growing command of professional register and concision. The memo format requires a particular institutional voice — authoritative but collaborative, analytical but action-oriented. Finding that register took several drafts and considerable feedback.</p>
+        <p>It also shows development in the skill of subordinating supporting evidence to the recommendation rather than leading with data. Engineers tend toward data-first writing because analysis is where the work happens. But readers — even technical readers — need the argument before the evidence. This memo reflects a conscious reversal of my default writing pattern.</p>
+        <p><!-- PLACEHOLDER: Describe a specific editing decision — a section you cut, a paragraph you restructured, or a sentence you rewrote five times. What does that decision reveal about how your communication instincts changed? --></p>
+      </div>
+      <div class="r-block reveal">
+        <div class="r-label">Reflection 03</div>
+        <div class="r-title">Did It Push Me Out of My Comfort Zone?</div>
+        <p>The tone was the challenge. Writing to a senior engineering team as a student required navigating a professional authority gap that I was acutely aware of. The memo had to be confident and recommendation-driven without being presumptuous. That balance — substantiated confidence — is one I still work on.</p>
+        <p>The page limit was also genuinely difficult. My first draft was nearly double the required length. Cutting it in half without losing the essential argument required accepting that some of my supporting analysis, while technically correct, was not necessary for the reader to reach the conclusion I was recommending.</p>
+        <p><!-- PLACEHOLDER: Was there a specific paragraph you were reluctant to cut but ultimately had to? What made that cut feel difficult, and what did you learn from it? --></p>
+      </div>
+      <div class="r-block reveal">
+        <div class="r-label">Reflection 04</div>
+        <div class="r-title">Is This My Best Work? Why or Why Not?</div>
+        <p>This memo is tighter and more professionally confident than Showcase 1. The economy of the format suits me — I find that constraints tend to produce better writing, and the page limit forced decisions that improved the final document. The opening paragraph in particular is among the best I produced in ENG2003.</p>
+        <p>What it lacks is depth in the risk section. I recommended the protocol adoption without fully addressing the failure modes and operational risks that a senior engineering team would immediately identify. If I revised this, I would add a brief risk table — not as a hedge, but as evidence of rigorous thinking. An incomplete risk analysis reads as overconfidence in any technical communication context.</p>
+        <p><!-- PLACEHOLDER: Did you receive a grade or specific written feedback on this piece? If so, what did the feedback identify? How did that align or conflict with your own assessment? --></p>
+      </div>
     </article>
-
-    <!-- Sidebar -->
     <aside class="detail-sidebar">
-
       <div class="sidebar-card">
         <div class="sidebar-card-label">Course</div>
-        <div class="sidebar-card-value">ENG2003 — Engineering Communication</div>
+        <div class="sidebar-card-value">ENG2003<br><span style='font-family:var(--font-mono);font-size:11px;font-weight:300;color:var(--text-muted);'>Engineering Communication</span></div>
       </div>
-
       <div class="sidebar-card">
-        <div class="sidebar-card-label">Type</div>
-        <!-- PLACEHOLDER: e.g. Technical Report, Presentation, Memo, Proposal, etc. -->
-        <div class="sidebar-card-value"><!-- PLACEHOLDER: Document type --></div>
+        <div class="sidebar-card-label">Document Type</div>
+        <div class="sidebar-card-value"><!-- PLACEHOLDER: e.g. Internal Technical Memo -->Technical Memorandum</div>
       </div>
-
       <div class="sidebar-card">
-        <div class="sidebar-card-label">Date</div>
-        <!-- PLACEHOLDER: e.g. March 2025 -->
-        <div class="sidebar-card-value"><!-- PLACEHOLDER: Date/Semester --></div>
+        <div class="sidebar-card-label">Semester</div>
+        <div class="sidebar-card-value"><!-- PLACEHOLDER: Update -->Fall 2024</div>
       </div>
-
+      <div class="sidebar-card">
+        <div class="sidebar-card-label">Audience</div>
+        <div class="sidebar-card-value"><!-- PLACEHOLDER: Who was the imagined recipient? -->Senior Engineering Team</div>
+      </div>
       <div class="sidebar-card">
         <div class="sidebar-card-label">Skills Demonstrated</div>
-        <!-- PLACEHOLDER: List 2–4 communication skills this piece shows -->
-        <div class="sidebar-card-value" style="font-size:14px;line-height:1.8;font-family:var(--font-mono)">
-          <!-- e.g. Technical writing<br>Audience awareness<br>Visual communication -->
-        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:8px;"><div class="skill-pill">Concision</div><div class="skill-pill">Professional register</div><div class="skill-pill">Recommendation framing</div><div class="skill-pill">Technical precision</div></div>
       </div>
-
-      <a href="../index.html#showcase" class="btn btn-ghost" style="text-align:center;justify-content:center">
-        ← Back to Showcase
-      </a>
-
-      <a href="showcase-3.html" class="btn btn-outline" style="justify-content:center">
-        Next: Showcase 3 →
-      </a>
-
+      <div style="display:flex;flex-direction:column;gap:10px;"><a href="showcase-1.html" class="btn btn-ghost" style="justify-content:center;">← Showcase 01</a><a href="showcase-3.html" class="btn btn-outline" style="justify-content:center;">Showcase 03 →</a></div>
     </aside>
-
   </div>
 </div>
-
-<!-- Footer -->
-<footer>
+<footer role="contentinfo">
   <div class="container footer-inner">
-    <div class="footer-logo">{{INITIALS}}<span>.</span></div>
-    <div class="footer-links">
+    <div class="footer-logo">{{{{INITIALS}}}}<span>.</span></div>
+    <nav class="footer-links">
       <a href="../index.html">Home</a>
+      <a href="../index.html#experience">Experience</a>
       <a href="../index.html#showcase">Showcase</a>
       <a href="reflection.html">Reflection</a>
-      <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:kartikj@my.yorku.ca">Email</a>
+      <a href="{{{{LINKEDIN_URL}}}}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:{{{{EMAIL}}}}">Email</a>
+    </nav>
+    <div class="footer-social">
+      <a href="{{{{LINKEDIN_URL}}}}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+      <a href="{{{{GITHUB_URL}}}}" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+      <a href="mailto:{{{{EMAIL}}}}" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
     </div>
-    <p class="footer-copy">© 2025 {{FULL_NAME}} · Built for the frontier.</p>
+    <p class="footer-copy">© 2025 {{{{FULL_NAME}}}} · Engineered for the frontier.</p>
   </div>
 </footer>
-
 <script src="../js/main.js"></script>
 </body>
 </html>
