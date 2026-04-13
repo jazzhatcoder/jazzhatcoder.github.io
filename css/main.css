@@ -669,7 +669,7 @@ section {
   border-radius: var(--radius-lg);
   padding: 28px;
   transition: border-color var(--t-mid) ease, background var(--t-mid) ease;
-  cursor: pointer;
+  cursor: crosshair;
   position: relative;
 }
 /* Bracket corners */
@@ -917,7 +917,7 @@ section {
   gap: 16px;
   align-items: flex-start;
   transition: border-color var(--t-mid) ease, background var(--t-mid) ease;
-  cursor: pointer;
+  cursor: crosshair;
   position: relative;
   overflow: hidden;
 }
@@ -965,7 +965,7 @@ section {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  cursor: pointer;
+  cursor: crosshair;
   transition: border-color var(--t-mid) ease, background var(--t-mid) ease;
   display: flex;
   flex-direction: column;
