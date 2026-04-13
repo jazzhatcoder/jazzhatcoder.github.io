@@ -836,7 +836,7 @@ section {
 .exp-item {
   position: relative;
   margin-bottom: 56px;
-  cursor: pointer;
+  cursor: crosshair;
   padding-left: 8px;
 }
 .exp-item:last-child { margin-bottom: 0; }
