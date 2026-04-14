@@ -1,10 +1,15 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Showcase 02 — Technical Memo — Kartik Jassal</title>
+  <title>Technical Report — Kartik Jassal</title>
   <link rel="stylesheet" href="../css/main.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png" />
+  <link rel="icon" href="assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/favicon/site.webmanifest" />
   <style>
     .sc-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:48px;}
     .sc-nav a{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);border:1px solid var(--line);padding:6px 14px;border-radius:var(--radius-sm);transition:all var(--t-fast) ease;}
@@ -26,7 +31,14 @@
     .skill-pill{font-family:var(--font-mono);font-size:10px;color:var(--text-mid);letter-spacing:0.08em;padding:7px 12px;background:var(--bg-3);border:1px solid var(--line);border-radius:var(--radius-sm);display:flex;align-items:center;gap:8px;transition:all var(--t-fast) ease;}
     .skill-pill::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
     .skill-pill:hover{border-color:var(--line-mid);color:var(--cyan);}
-  </style>
+  </style><style>
+    .slide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px;}
+    .slide-thumb{background:var(--bg-3);border:1px solid var(--line);border-radius:var(--radius);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px;transition:border-color var(--t-mid) ease;cursor:default;}
+    .slide-thumb:hover{border-color:var(--line-mid);}
+    .slide-num{font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:0.15em;text-transform:uppercase;}
+    .slide-label{font-family:var(--font-hud);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);text-align:center;letter-spacing:0.04em;}
+    @media(max-width:600px){.slide-grid{grid-template-columns:repeat(2,1fr);}}
+    </style>
 </head>
 <body>
 <canvas id="starfield" aria-hidden="true"></canvas>
@@ -58,59 +70,71 @@
   <div class="container">
     <div class="page-breadcrumb">
       <a href="../index.html">Home</a><span>›</span>
-      <a href="../index.html#showcase">Showcase</a><span>›</span><span>Showcase 02</span>
+      <a href="../index.html#showcase">Showcase</a><span>›</span><span>Showcase 03</span>
     </div>
-    <p class="page-subtitle">ENG2003 · Engineering Communication · Showcase 02</p>
-    <!-- PLACEHOLDER: Replace with your actual piece title -->
-    <h1 class="page-title">Technical Memo:<br>Autonomous Inspection Protocol for LEO Assets</h1>
-    <!-- PLACEHOLDER: Replace with your actual piece description -->
-    <p class="page-intro">An internal technical memorandum recommending adoption of a standardised autonomous inspection protocol for low Earth orbit satellite platforms, addressed to a senior engineering team. Produced as part of ENG2003.</p>
+    <p class="page-subtitle">ENG2003 · Engineering Communication · Showcase 03</p>
+    <!-- PLACEHOLDER: Replace with your actual presentation title -->
+    <h1 class="page-title">Group Presentation:<br>Hybrid Energy Storage Systems (HESS)</h1>
+    <!-- PLACEHOLDER: Replace with description of your actual presentation -->
+    <p class="page-intro">A collaborative ENG2003 presentation explaining why hybrid energy storage systems are a promising solution for large-scale renewable energy deployment. The deck moves from the need for energy storage and the major storage categories to HESS architecture, implementation, limitations, and overall significance.</p>
   </div>
 </div>
 <div class="container">
-  <div class="sc-nav"><a href="showcase-1.html">01 — Feasibility Report</a><a href="showcase-2.html" class="current">02 — Technical Memo</a><a href="showcase-3.html">03 — Oral Presentation</a><a href="showcase-4.html">04 — Other Piece</a></div>
+  <div class="sc-nav"><a href="showcase-1.html">01 — Feasibility Report</a><a href="showcase-2.html">02 — Technical Memo</a><a href="showcase-3.html" class="current">03 — Oral Presentation</a><a href="showcase-4.html">04 — Other Piece</a></div>
   <div class="detail-layout">
     <article class="detail-content">
-      <div class="doc-frame">
+
+      <!-- Slide thumbnails -->
+      <div class="doc-frame" style="margin-bottom:40px;">
         <div class="doc-frame-bar">
-          <span>Document preview</span>
-          <span style="color:var(--text-dim);">Add your file to assets/ to enable download</span>
+          <span>Slide deck preview</span>
+          <span style="color:var(--text-dim);">Assignment 4 ENG2003.pdf · 13 slides</span>
         </div>
-        <div class="doc-frame-body">
-          <div class="doc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
-          <!-- PLACEHOLDER: Update filename -->
-          <p style="font-family:var(--font-hud);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text);margin:0;">Inspection-Protocol-Memo.pdf</p>
-          <!-- PLACEHOLDER: Update word/page count and semester -->
-          <p style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);letter-spacing:0.1em;margin:0;">~1,200 words · 4 pages · ENG2003, Fall 2024</p>
+        <div style="padding:24px;">
+          <div class="slide-grid">
+            <!-- PLACEHOLDER: Replace labels with your actual slide titles -->
+            <div class="slide-thumb"><div class="slide-num">Slide 01</div><div class="slide-label">Hybrid Energy Storage Systems</div></div>
+            <div class="slide-thumb"><div class="slide-num">Slide 02</div><div class="slide-label">Why Do We Need Energy Storage?</div></div>
+            <div class="slide-thumb"><div class="slide-num">Slide 03</div><div class="slide-label">How Can We Effectively Store Renewable Energy?</div></div>
+            <div class="slide-thumb"><div class="slide-num">Slide 04</div><div class="slide-label">Types of Energy Storage</div></div>
+            <div class="slide-thumb"><div class="slide-num">Slide 05</div><div class="slide-label">Limitations of Individual Systems</div></div>
+            <div class="slide-thumb"><div class="slide-num">Slide 06</div><div class="slide-label">Hybrid Energy Storage Systems</div></div>
+            <div class="slide-thumb"><div class="slide-num">Slide 07</div><div class="slide-label">Why Hybrid Energy Storage?</div></div>
+            <div class="slide-thumb"><div class="slide-num">Slide 08</div><div class="slide-label">How Do HESS Store Energy?</div></div>
+            <div class="slide-thumb"><div class="slide-num">Slide 09</div><div class="slide-label">Successful Implementation</div></div>
+          </div>
+          <!-- PLACEHOLDER: Replace with embedded slides or PDF viewer when available -->
+          <p style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:0.1em;text-align:center;margin-top:8px;">Representative slide titles from the full 13-slide deck</p>
         </div>
       </div>
+
       <div class="r-block reveal">
         <div class="r-label">Reflection 01</div>
         <div class="r-title">Why I Chose This Piece</div>
-        <p>I selected this memo because it represents a fundamentally different communication challenge from the feasibility report: where that document had to bridge an expertise gap, this memo had to communicate urgency and clarity to an audience of technical peers. The constraint here was not simplification but precision — every claim had to be supportable and every recommendation had to be operationally actionable.</p>
-        <p>The memo format also forced economy. With a strict page limit, I could not rely on volume to demonstrate thoroughness. Each sentence had to carry weight. This is the piece where I first practised writing tight — cutting words without cutting meaning.</p>
-        <p><!-- PLACEHOLDER: Add specific context: what prompted the memo? Was it a response to a case study, a hypothetical brief, or a real problem you identified? What made the topic personally relevant to your engineering interests? --></p>
+        <p> I chose this presentation because it shows how I communicate technical ideas in a live, collaborative format rather than only through written work. My section focused on a foundational question — how renewable energy can be stored effectively — and introduced four major categories of storage before the presentation moved into the case for hybrid energy storage systems.</p>
+        <p>The piece also represents a different kind of communication challenge from my written ENG2003 work. In a group presentation, my section had to be clear on its own while also setting up the logic of the rest of the deck, including why HESS is needed, how it works, where it has already been implemented, and what limitations still remain.</p>
+        <p>This made the assignment personally relevant to my engineering interests because it required me to explain a broad technical problem clearly, connect my part to the larger team argument, and contribute to a presentation about a technology that has direct relevance to sustainability, energy systems, and real-world engineering decision-making.</p>
       </div>
       <div class="r-block reveal">
         <div class="r-label">Reflection 02</div>
         <div class="r-title">What It Shows About My Development as a Communicator</div>
-        <p>This memo demonstrates growing command of professional register and concision. The memo format requires a particular institutional voice — authoritative but collaborative, analytical but action-oriented. Finding that register took several drafts and considerable feedback.</p>
-        <p>It also shows development in the skill of subordinating supporting evidence to the recommendation rather than leading with data. Engineers tend toward data-first writing because analysis is where the work happens. But readers — even technical readers — need the argument before the evidence. This memo reflects a conscious reversal of my default writing pattern.</p>
-        <p><!-- PLACEHOLDER: Describe a specific editing decision — a section you cut, a paragraph you restructured, or a sentence you rewrote five times. What does that decision reveal about how your communication instincts changed? --></p>
+        <p>This presentation shows growth in my ability to simplify technical content without making it shallow. In my portion of the deck, I had to explain the main categories of energy storage clearly and quickly, using only the information most important for the audience to follow the later discussion on hybrid systems. That required stronger verbal framing and better pacing than I usually need in written assignments.</p>
+        <p>It also demonstrates development in visual communication. Because the slides relied on titles, short bullet points, and strong images rather than dense text, I had to treat the visuals as support for the spoken explanation rather than as a script. That forced me to know the material well enough to speak through it rather than read from it.</p>
+        <p>The biggest shift in my approach was learning to use each slide as a cue rather than a paragraph. Earlier drafts of my presentation style tend to depend too heavily on text, but this deck worked better when I treated the slide title and a few core points as anchors, then explained the ideas in my own words. That change made my communication more natural and more audience-focused.</p>
       </div>
       <div class="r-block reveal">
         <div class="r-label">Reflection 03</div>
         <div class="r-title">Did It Push Me Out of My Comfort Zone?</div>
-        <p>The tone was the challenge. Writing to a senior engineering team as a student required navigating a professional authority gap that I was acutely aware of. The memo had to be confident and recommendation-driven without being presumptuous. That balance — substantiated confidence — is one I still work on.</p>
-        <p>The page limit was also genuinely difficult. My first draft was nearly double the required length. Cutting it in half without losing the essential argument required accepting that some of my supporting analysis, while technically correct, was not necessary for the reader to reach the conclusion I was recommending.</p>
-        <p><!-- PLACEHOLDER: Was there a specific paragraph you were reluctant to cut but ultimately had to? What made that cut feel difficult, and what did you learn from it? --></p>
+        <p>Yes. Presenting technical material live always feels less controlled than writing it down, and this piece pushed me to be concise in real time. I had to explain several storage technologies clearly, transition smoothly into the broader HESS argument, and do it in a way that fit the tone and pacing of a team presentation.</p>
+        <p>The collaborative format also added pressure because my section affected everyone else's. If my explanation of the storage problem or the different storage categories was unclear, the later slides about hybrid systems, implementation, and limitations would have been harder for the audience to follow. That made me think much more carefully about structure and transitions.</p>
+        <p>The question I prepared for most carefully was why hybrid systems are necessary at all if single storage technologies like lithium-ion batteries or pumped hydro already exist. The best answer came from connecting the slides logically: individual technologies each have clear limitations, while HESS is presented as a way to combine strengths and reduce weaknesses. Preparing for that kind of question pushed me to understand the full presentation, not just my own section.</p>
       </div>
       <div class="r-block reveal">
         <div class="r-label">Reflection 04</div>
         <div class="r-title">Is This My Best Work? Why or Why Not?</div>
-        <p>This memo is tighter and more professionally confident than Showcase 1. The economy of the format suits me — I find that constraints tend to produce better writing, and the page limit forced decisions that improved the final document. The opening paragraph in particular is among the best I produced in ENG2003.</p>
-        <p>What it lacks is depth in the risk section. I recommended the protocol adoption without fully addressing the failure modes and operational risks that a senior engineering team would immediately identify. If I revised this, I would add a brief risk table — not as a hedge, but as evidence of rigorous thinking. An incomplete risk analysis reads as overconfidence in any technical communication context.</p>
-        <p><!-- PLACEHOLDER: Did you receive a grade or specific written feedback on this piece? If so, what did the feedback identify? How did that align or conflict with your own assessment? --></p>
+        <p>This is not my strongest piece in terms of technical depth, but it is one of the most valuable pieces in terms of communication growth. Its strength is clarity and teamwork: it shows that I can contribute to a shared presentation, explain technical concepts accessibly, and help build a coherent argument across multiple speakers.</p>
+        <p>If I revised it now, I would strengthen the transition between my section and the later HESS-specific slides even more. I would also refine the visual hierarchy so that the key takeaway from each slide is even more immediate, especially in the early part of the presentation where the audience is still building context.</p>
+        <p>I do not currently have a recording to review, but if one were available, I would use it to evaluate pacing, slide timing, and how effectively I used the visuals to support rather than repeat the spoken content. That kind of review would make it easier to identify habits that are harder to notice while presenting live.</p>
       </div>
     </article>
     <aside class="detail-sidebar">
@@ -119,42 +143,46 @@
         <div class="sidebar-card-value">ENG2003<br><span style='font-family:var(--font-mono);font-size:11px;font-weight:300;color:var(--text-muted);'>Engineering Communication</span></div>
       </div>
       <div class="sidebar-card">
-        <div class="sidebar-card-label">Document Type</div>
-        <div class="sidebar-card-value"><!-- PLACEHOLDER: e.g. Internal Technical Memo -->Technical Memorandum</div>
+        <div class="sidebar-card-label">Format</div>
+        <div class="sidebar-card-value">Group oral presentation</div>
       </div>
       <div class="sidebar-card">
         <div class="sidebar-card-label">Semester</div>
-        <div class="sidebar-card-value"><!-- PLACEHOLDER: Update -->Fall 2024</div>
+        <div class="sidebar-card-value">Winter 2026</div>
       </div>
       <div class="sidebar-card">
         <div class="sidebar-card-label">Audience</div>
-        <div class="sidebar-card-value"><!-- PLACEHOLDER: Who was the imagined recipient? -->Senior Engineering Team</div>
+        <div class="sidebar-card-value">Mixed classroom audience</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-label">Slides</div>
+        <div class="sidebar-card-value">13 slides total</div>
       </div>
       <div class="sidebar-card">
         <div class="sidebar-card-label">Skills Demonstrated</div>
-        <div style="display:flex;flex-direction:column;gap:7px;margin-top:8px;"><div class="skill-pill">Concision</div><div class="skill-pill">Professional register</div><div class="skill-pill">Recommendation framing</div><div class="skill-pill">Technical precision</div></div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:8px;"><div class="skill-pill">Oral delivery</div><div class="skill-pill">Visual communication</div><div class="skill-pill">Technical summarization</div><div class="skill-pill">Team coordination</div></div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:10px;"><a href="showcase-1.html" class="btn btn-ghost" style="justify-content:center;">← Showcase 01</a><a href="showcase-3.html" class="btn btn-outline" style="justify-content:center;">Showcase 03 →</a></div>
+      <div style="display:flex;flex-direction:column;gap:10px;"><a href="showcase-2.html" class="btn btn-ghost" style="justify-content:center;">← Showcase 02</a><a href="showcase-4.html" class="btn btn-outline" style="justify-content:center;">Showcase 04 →</a></div>
     </aside>
   </div>
 </div>
 <footer role="contentinfo">
   <div class="container footer-inner">
-    <div class="footer-logo">{{KJ}}<span>.</span></div>
+    <div class="footer-logo">KJ<span>.</span></div>
     <nav class="footer-links">
       <a href="../index.html">Home</a>
       <a href="../index.html#experience">Experience</a>
       <a href="../index.html#showcase">Showcase</a>
       <a href="reflection.html">Reflection</a>
-      <a href="{{https://www.linkedin.com/in/kartikjassal/}}" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:{{kartikj@my.yorku.ca}}">Email</a>
+      <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:kartikj@my.yorku.ca">Email</a>
     </nav>
     <div class="footer-social">
-      <a href="{{https://www.linkedin.com/in/kartikjassal/}}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-      <a href="{{https://github.com/jazzhatcoder}}" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-      <a href="mailto:{{kartikj@my.yorku.ca}}" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+      <a href="https://www.linkedin.com/in/kartikjassal/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+      <a href="https://github.com/jazzhatcoder" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+      <a href="mailto:kartikj@my.yorku.ca" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
     </div>
-    <p class="footer-copy">© 2026 {{Kartik Jassal}} · Engineered for the frontier.</p>
+    <p class="footer-copy">© 2026 Kartik Jassal · Engineered for the frontier.</p>
   </div>
 </footer>
 <script src="../js/main.js"></script>
