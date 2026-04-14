@@ -201,6 +201,8 @@
     open = !open;
     nav.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     const spans = btn.querySelectorAll('span');
     if (open) {
       spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
@@ -213,6 +215,9 @@
 
   btn.addEventListener('click', toggle);
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', toggle));
+  document.addEventListener('keydown', (e) => {
+    if (open && e.key === 'Escape') toggle();
+  });
 })();
 
 
@@ -257,8 +262,7 @@
         links.forEach(a => {
           const href = a.getAttribute('href') || '';
           const match = href === `#${id}` || href.endsWith(`#${id}`);
-          a.style.color = match ? 'var(--cyan)' : '';
-          a.style.background = match ? 'var(--cyan-dim)' : '';
+          a.classList.toggle('is-active', match);
         });
       }
     });
